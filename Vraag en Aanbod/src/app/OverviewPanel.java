@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 
 public class OverviewPanel extends JPanel {
 	
-	public OverviewPanel(){
+	public OverviewPanel(Main.OverviewFrame frame){
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel UpperPanel = new JPanel();
@@ -19,18 +19,18 @@ public class OverviewPanel extends JPanel {
 		add(UpperPanel, BorderLayout.NORTH);
 		UpperPanel.setLayout(new BorderLayout(0, 0));
 		
-		JLabel UpperLabel = new JLabel("  Vraag en Aanbod");
-		UpperLabel.setHorizontalAlignment(SwingConstants.LEFT);
-		UpperLabel.setForeground(Color.WHITE);
-		UpperLabel.setFont(new Font("Segoe UI Light", Font.PLAIN, 32));
-		UpperPanel.add(UpperLabel, BorderLayout.SOUTH);
-		
 		JPanel LowerPanel = new JPanel();
 		LowerPanel.setBackground(Color.GRAY);
 		add(LowerPanel, BorderLayout.SOUTH);
 		
-		JButton btnMaakNieuwEvent = new JButton("Press me!");
+		JLabel lblHeader = new JLabel("  Vraag en Aanbod");
+		lblHeader.setHorizontalAlignment(SwingConstants.LEFT);
+		lblHeader.setForeground(Color.WHITE);
+		lblHeader.setFont(new Font("Segoe UI Light", Font.PLAIN, 32));
+		UpperPanel.add(lblHeader, BorderLayout.SOUTH);		
+		
+		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
 		add(btnMaakNieuwEvent, BorderLayout.WEST);
-		btnMaakNieuwEvent.addActionListener(new AllActionListener.TextDisplayHandler());
+		btnMaakNieuwEvent.addActionListener(new AllActionListener.NavigateToNewEventHandler(frame));		
 	}
 }

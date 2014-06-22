@@ -15,11 +15,12 @@ public class Main {
 	
 	public static class OverviewFrame extends JFrame { // Deze alleen is een JFrame omdat hij hiermee begint, en dus de frame wordt aangemaakt
 		
-		private OverviewPanel overviewpanel = new OverviewPanel();	
+		private OverviewPanel overviewpanel;
 		
 		public OverviewFrame(){
 			super("Vraag en Aanbod");
 		
+			overviewpanel = new OverviewPanel(this);
 			this.setVisible(true);
 			this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Zorg dat het kruisje daadwerkelijk de app sluit.
 			this.setSize(360, 576); // Eerst de size dan pas locatie zetten anders nope
