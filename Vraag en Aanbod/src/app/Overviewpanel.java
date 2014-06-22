@@ -1,19 +1,13 @@
 package app;
 
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-
-import net.miginfocom.swing.MigLayout;
-
-import java.awt.GridLayout;
-import java.awt.FlowLayout;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 
-import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 
 public class Overviewpanel extends JPanel {
 	
@@ -35,8 +29,8 @@ public class Overviewpanel extends JPanel {
 		LowerPanel.setBackground(Color.GRAY);
 		add(LowerPanel, BorderLayout.SOUTH);
 		
-		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
+		JButton btnMaakNieuwEvent = new JButton("Press me!");
 		add(btnMaakNieuwEvent, BorderLayout.WEST);
-
+		btnMaakNieuwEvent.addActionListener(new AllActionListener.TextDisplayHandler());
 	}
 }
