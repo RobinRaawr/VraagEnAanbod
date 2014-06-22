@@ -9,9 +9,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-public class Overviewpanel extends JPanel {
+public class OverviewPanel extends JPanel {
 	
-	public Overviewpanel(){
+	public OverviewPanel(){
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel UpperPanel = new JPanel();

@@ -2,11 +2,11 @@ package app;
 
 import javax.swing.JFrame;
 
-public class Overviewframe extends JFrame {
+public class OverviewFrame extends JFrame {
 	
-	private Overviewpanel overviewpanel = new Overviewpanel();	
+	private OverviewPanel overviewpanel = new OverviewPanel();	
 	
-	public Overviewframe(){
+	public OverviewFrame(){
 		super("Vraag en Aanbod");
 	
 		this.setVisible(true);
