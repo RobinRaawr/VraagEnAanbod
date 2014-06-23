@@ -13,7 +13,7 @@ public class Main {
 	
 	
 	
-	public static class OverviewFrame extends JFrame { // Deze alleen is een JFrame omdat hij hiermee begint, en dus de frame wordt aangemaakt
+	public static class OverviewFrame extends JFrame { // Deze alleen is een JFrame omdat hij hiermee begint, en dus de frame wordt aangemaakt en doorgegeven
 		
 		private OverviewPanel overviewpanel;
 		
@@ -27,7 +27,7 @@ public class Main {
 			this.setLocationRelativeTo(null); // Zorgt dat de app in het midden begint en niet links boven	< Dont know why null.. just dis		
 			this.setContentPane(overviewpanel); // Hier wordt de overviewpanel gelinkt met overviewframe
 			this.revalidate(); // JFrame's refresh methode	
-			System.out.println("Overvieuwframe + overviewpanel is gemaakt");
+			System.out.println("de App zijn Frame + overviewpanel is gemaakt");
 			
 		}
 	}

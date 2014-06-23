@@ -33,9 +33,6 @@ public class NewEventPanel extends JPanel {
 		add(LowerPanel, BorderLayout.SOUTH);
 		LowerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
-		JButton btnDoIt = new JButton("Maak nu echt een nieuw event");
-		add(btnDoIt, BorderLayout.CENTER);
-		
 	}
 
 }
