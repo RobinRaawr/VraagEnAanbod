@@ -41,6 +41,6 @@ public class OverviewPanel extends JPanel {
 		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		btnMaakNieuwEvent.setForeground(Color.BLACK);
 		MiddlePanel.add(btnMaakNieuwEvent, "cell 0 0,alignx trailing,aligny bottom");
-		btnMaakNieuwEvent.addActionListener(new AllActionListener.NavigateToNewEventHandler(frame));		
+		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
 	}
 }
