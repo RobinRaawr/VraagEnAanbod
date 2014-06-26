@@ -4,15 +4,19 @@ import java.util.ArrayList;
 
 public class FakeDatabase {
 
-	public ArrayList<User> userList = new ArrayList<User>();
-	public ArrayList<Event> eventList = new ArrayList<Event>();
+	private ArrayList<User> userList = new ArrayList<User>();
+	private ArrayList<Event> eventList = new ArrayList<Event>();
 	
-//	public ArrayList<Event> getAllEvents(){
-//		return eventList;
-//	}
-//	
-//	public ArrayList<User> getAllUsers(){
-//		return userList;
-//	}
+	public FakeDatabase(){
+		
+	}
+	
+	public ArrayList<Event> getAllEvents(){
+		return eventList;
+	}
+	
+	public ArrayList<User> getAllUsers(){
+		return userList;
+	}
 	
 }
