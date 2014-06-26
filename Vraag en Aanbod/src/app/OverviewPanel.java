@@ -8,11 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import java.awt.GridLayout;
 import net.miginfocom.swing.MigLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-
 public class OverviewPanel extends JPanel {
 	
 	public OverviewPanel(Main.OverviewFrame frame){

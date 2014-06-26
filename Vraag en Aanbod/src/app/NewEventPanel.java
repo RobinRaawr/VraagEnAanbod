@@ -8,7 +8,6 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
-import javax.swing.JButton;
 
 public class NewEventPanel extends JPanel {
 	
