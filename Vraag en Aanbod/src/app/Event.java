@@ -10,9 +10,10 @@ public class Event {
 	private String date;
 	
 
-	public Event(String creator, String startTime, String endTime, String date){
+	public Event(String creator, String subject, String startTime, String endTime, String date){
 		
 		this.creator = creator;
+		this.subject = subject;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
