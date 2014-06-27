@@ -11,7 +11,7 @@ import javax.swing.SwingConstants;
 
 public class NewEventPanel extends JPanel {
 	
-	Main.OverviewFrame frame;
+	AppFrame frame;
 	
 	public NewEventPanel(){
 		setLayout(new BorderLayout(0, 0));
