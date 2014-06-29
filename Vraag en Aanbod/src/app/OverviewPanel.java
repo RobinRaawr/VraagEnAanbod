@@ -2,14 +2,25 @@ package app;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
+
 import net.miginfocom.swing.MigLayout;
+
+import javax.swing.JScrollPane;
+
+import java.awt.FlowLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JList;
 public class OverviewPanel extends JPanel {
+	
 	
 	public OverviewPanel(Main.OverviewFrame frame){
 		setLayout(new BorderLayout(0, 0));
@@ -31,12 +42,22 @@ public class OverviewPanel extends JPanel {
 		
 		JPanel MiddlePanel = new JPanel();
 		add(MiddlePanel, BorderLayout.CENTER);
-		MiddlePanel.setLayout(new MigLayout("", "[436px]", "[233px]"));
+		MiddlePanel.setLayout(new BorderLayout(0, 0));
+		
+		JPanel MiddleOnderPanel = new JPanel();
+		MiddlePanel.add(MiddleOnderPanel);
+		MiddleOnderPanel.setLayout(new BorderLayout(0, 0));		
+		
+		JScrollPane overviewPane = new JScrollPane();
+		MiddleOnderPanel.add(overviewPane, BorderLayout.CENTER);
+				
+		JPanel MiddleBovenPanel = new JPanel();
+		MiddlePanel.add(MiddleBovenPanel, BorderLayout.NORTH);
 		
 		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
+		MiddleBovenPanel.add(btnMaakNieuwEvent);
 		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		btnMaakNieuwEvent.setForeground(Color.BLACK);
-		MiddlePanel.add(btnMaakNieuwEvent, "cell 0 0,alignx trailing,aligny bottom");
 		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
 	}
 }
