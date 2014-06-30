@@ -14,10 +14,10 @@ public class AllActionListeners {
 
 	public static class NavigateToNewEventHandler implements ActionListener {
 		
-		Main.OverviewFrame frame;
+		AppFrame frame;
 		NewEventPanel neweventpanel = new NewEventPanel();
 		
-		public NavigateToNewEventHandler(Main.OverviewFrame frame) {
+		public NavigateToNewEventHandler(AppFrame frame) {
 			this.frame = frame;
 		}
 		

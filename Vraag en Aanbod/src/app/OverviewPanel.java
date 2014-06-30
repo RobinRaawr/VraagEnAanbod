@@ -22,7 +22,7 @@ import javax.swing.JList;
 public class OverviewPanel extends JPanel {
 	
 	
-	public OverviewPanel(Main.OverviewFrame frame){
+	public OverviewPanel(AppFrame frame){
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel UpperPanel = new JPanel();
