@@ -2,23 +2,15 @@ package app;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-
-import net.miginfocom.swing.MigLayout;
-
 import javax.swing.JScrollPane;
+import javax.swing.JScrollBar;
 
-import java.awt.FlowLayout;
 
-import javax.swing.BoxLayout;
-import javax.swing.JList;
 public class OverviewPanel extends JPanel {
 	
 	
@@ -44,13 +36,6 @@ public class OverviewPanel extends JPanel {
 		add(MiddlePanel, BorderLayout.CENTER);
 		MiddlePanel.setLayout(new BorderLayout(0, 0));
 		
-		JPanel MiddleOnderPanel = new JPanel();
-		MiddlePanel.add(MiddleOnderPanel);
-		MiddleOnderPanel.setLayout(new BorderLayout(0, 0));		
-		
-		JScrollPane overviewPane = new JScrollPane();
-		MiddleOnderPanel.add(overviewPane, BorderLayout.CENTER);
-				
 		JPanel MiddleBovenPanel = new JPanel();
 		MiddlePanel.add(MiddleBovenPanel, BorderLayout.NORTH);
 		
@@ -59,5 +44,15 @@ public class OverviewPanel extends JPanel {
 		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		btnMaakNieuwEvent.setForeground(Color.BLACK);
 		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
+		
+		JPanel MiddleOnderPanel = new JPanel();
+		MiddlePanel.add(MiddleOnderPanel);
+		MiddleOnderPanel.setLayout(new BorderLayout(0, 0));
+		
+		JScrollPane scrollPane = new JScrollPane();
+		MiddleOnderPanel.add(scrollPane, BorderLayout.CENTER);
+		
+		JScrollBar scrollBar = new JScrollBar();
+		scrollPane.setRowHeaderView(scrollBar);
 	}
 }
