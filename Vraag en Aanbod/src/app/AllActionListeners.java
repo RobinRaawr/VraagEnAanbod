@@ -6,12 +6,6 @@ import java.awt.event.ActionListener;
 
 public class AllActionListeners {
 
-	public static class TextDisplayHandler implements ActionListener {
-		@Override public void actionPerformed(ActionEvent arg0) {
-			System.out.println("Er is op de knop gedrukt omg");
-		}
-	}
-
 	public static class NavigateToNewEventHandler implements ActionListener {
 		
 		AppFrame frame;
@@ -24,9 +18,24 @@ public class AllActionListeners {
 		
 		@Override public void actionPerformed(ActionEvent arg0) {
 			frame.setContentPane(neweventpanel);
-			System.out.println("Op naar Nieuw Event Scherm");
 			frame.revalidate();
+		}	
+		
+	} 	
+	
+	public static class NavigateToOverviewPanel implements ActionListener {
+		
+		AppFrame frame;
+		OverviewPanel overviewPanel;
+		
+		public NavigateToOverviewPanel(AppFrame frame) {
+			this.frame = frame;
 		}
+		
+		@Override public void actionPerformed(ActionEvent arg0) {
+			frame.setContentPane(overviewPanel);
+			frame.revalidate();
+		}	
 		
 	}
 }

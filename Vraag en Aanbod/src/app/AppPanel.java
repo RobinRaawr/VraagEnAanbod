@@ -10,6 +10,7 @@ public abstract class AppPanel extends JPanel {
 		this.frame = frame;
 	}
 	
-	public abstract void refresh();
-
+	public void refresh() {
+		System.out.println("AppPanel >> refresh()");
+	}
 }

@@ -9,12 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
-import javax.swing.JScrollBar;
+import java.awt.GridLayout;
 
 
 public class OverviewPanel extends AppPanel {			
 	
 	private JScrollPane scrollPane;
+	private JPanel internalListPanel;
 
 	public OverviewPanel(AppFrame frame){
 		super(frame);
@@ -56,18 +57,23 @@ public class OverviewPanel extends AppPanel {
 		scrollPane = new JScrollPane();
 		MiddleOnderPanel.add(scrollPane, BorderLayout.CENTER);
 		
-		JScrollBar scrollBar = new JScrollBar();
-		scrollPane.setRowHeaderView(scrollBar);
+		internalListPanel = new JPanel();
+		scrollPane.setViewportView(internalListPanel);
+		internalListPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		refresh();
-		
+		//revalidate();
 	}
 
 	@Override
-	public void refresh() { //Hier hoeft geen appframe frame want die zit al in.. appPanel waar van overgeerfdbhgflm
+	public void refresh() { // Hier hoeft geen appframe frame want die zit al in.. appPanel erft al over
+		internalListPanel.removeAll(); // Gooi de interne lijst van de JScrollPane leeg.
+		
+		System.out.println("OverviewPanel >> refresh()");
+		
 		for (Event event : frame.getFakeDatabase().getAllEvents()){
-			scrollPane.add(new EventListItem(event));
+			internalListPanel.add(new EventListItem(event));
 		}
-		System.out.println("OverviewPanel refreshed.");
+		
 	}
 }
