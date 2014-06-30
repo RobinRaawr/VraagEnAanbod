@@ -6,9 +6,10 @@ public class FakeDatabase {
 
 	private ArrayList<User> userList = new ArrayList<User>();
 	private ArrayList<Event> eventList = new ArrayList<Event>();
+	private AppFrame frame;
 	
-	public FakeDatabase(){
-		
+	public FakeDatabase(AppFrame frame){
+		this.frame = frame;
 	}
 	
 	public ArrayList<Event> getAllEvents(){
@@ -22,7 +23,8 @@ public class FakeDatabase {
 	public void insertEvent(String creator, String subject, String startTime, String endTime, String date) {
 		eventList.add(new Event(creator, subject, startTime, endTime, date));
 		
+		frame.refreshActivePanel(); // Refresh de app-panel die weergeven wordt.
 		
+		System.out.println("Event toegevoegd.");
 	}
-	
 }

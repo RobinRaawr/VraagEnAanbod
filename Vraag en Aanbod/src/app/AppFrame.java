@@ -7,6 +7,7 @@ public class AppFrame extends JFrame {
 	private FakeDatabase 	fakeDatabase;
 	private OverviewPanel 	overviewPanel;
 	private NewEventPanel 	neweventPanel;
+	private AppPanel activePanel;
 
 	public static void main(String[] args) {		
 		AppFrame appFrame = new AppFrame();
@@ -19,10 +20,10 @@ public class AppFrame extends JFrame {
 		}
 	}	
 	
-	public AppFrame(){
+	public AppFrame() {
 		super("Vraag en Aanbod");		
 		
-		fakeDatabase = new FakeDatabase(); 				
+		fakeDatabase = new FakeDatabase(this);			
 		overviewPanel = new OverviewPanel(this);
 		neweventPanel = new NewEventPanel(this);
 		
@@ -30,16 +31,27 @@ public class AppFrame extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Zorg dat het kruisje daadwerkelijk de app sluit.
 		this.setSize(360, 576); // Eerst de size dan pas locatie zetten anders nope
 		this.setLocationRelativeTo(null); // Zorgt dat de app in het midden begint en niet links boven	< Dont know why null.. just dis		
-		this.setContentPane(overviewPanel); // Hier wordt de overviewpanel gelinkt met AppFrame
-		this.revalidate(); // JFrame's refresh methode	
+		this.setActivePanel(overviewPanel); // Hier wordt de overviewpanel gelinkt met AppFrame
+		//this.revalidate(); // JFrame's refresh methode	
 		System.out.println("de App zijn Frame + overviewpanel is gemaakt");
 		
 	}
 	
-	public FakeDatabase getFakeDatabase(){
+	public FakeDatabase getFakeDatabase() {
 		return fakeDatabase;
 	}
+	
+	public void setActivePanel(AppPanel appPanel) {
+		activePanel = appPanel; // Onthoud welke app-panel wordt weergeven.
+		refreshActivePanel();
+	}
 
-
-
+	public void refreshActivePanel() {
+		if (activePanel == null)
+			return; // Stopt ALTIJD de huidige method.
+		
+		activePanel.refresh();
+		setContentPane(activePanel);
+		revalidate();
+	}
 }
