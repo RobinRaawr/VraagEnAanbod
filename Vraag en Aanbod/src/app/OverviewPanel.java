@@ -11,6 +11,9 @@ import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import java.awt.GridLayout;
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JTabbedPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class OverviewPanel extends AppPanel {			
@@ -40,10 +43,10 @@ public class OverviewPanel extends AppPanel {
 		
 		JPanel MiddlePanel = new JPanel();
 		add(MiddlePanel, BorderLayout.CENTER);
-		MiddlePanel.setLayout(new BorderLayout(0, 0));
+		MiddlePanel.setLayout(new MigLayout("", "[450px,grow]", "[53.00,grow][198px][39px]"));
 		
 		JPanel MiddleBovenPanel = new JPanel();
-		MiddlePanel.add(MiddleBovenPanel, BorderLayout.SOUTH);
+		MiddlePanel.add(MiddleBovenPanel, "cell 0 2,growx,aligny top");
 		MiddleBovenPanel.setLayout(new MigLayout("", "[123px,grow]", "[25px]"));
 		
 		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
@@ -54,7 +57,7 @@ public class OverviewPanel extends AppPanel {
 		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
 		
 		JPanel MiddleOnderPanel = new JPanel();
-		MiddlePanel.add(MiddleOnderPanel);
+		MiddlePanel.add(MiddleOnderPanel, "cell 0 1,grow");
 		MiddleOnderPanel.setLayout(new BorderLayout(0, 0));
 		
 		scrollPane = new JScrollPane();
@@ -63,6 +66,16 @@ public class OverviewPanel extends AppPanel {
 		internalListPanel = new JPanel();
 		scrollPane.setViewportView(internalListPanel);
 		internalListPanel.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		JPanel panel = new JPanel();
+		MiddlePanel.add(panel, "flowx,cell 0 0,growx");
+		panel.setLayout(new MigLayout("", "[61px,grow]", "[23px]"));
+		
+		JButton btnVraag = new JButton("Aanbod");
+		panel.add(btnVraag, "flowx,cell 0 0,growx,aligny top");
+		
+		JButton btnAanbod = new JButton("Vraag");
+		panel.add(btnAanbod, "cell 0 0,growx,aligny top");
 		
 		refresh();
 		//revalidate();

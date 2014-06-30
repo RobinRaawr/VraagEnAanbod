@@ -2,23 +2,20 @@ package app;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
-import javax.swing.JPanel;
-
 import java.awt.FlowLayout;
-
-import javax.swing.JLabel;
-
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import net.miginfocom.swing.MigLayout;
-
-import javax.swing.JTextField;
-import javax.swing.JButton;
 
 public class NewEventPanel extends AppPanel {
 	private JTextField txtSubject;
@@ -49,10 +46,8 @@ public class NewEventPanel extends AppPanel {
 		LowerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 		JPanel MiddlePanel = new JPanel();
-		add(MiddlePanel, BorderLayout.CENTER);
-		MiddlePanel.setLayout(new MigLayout("",
-				"[23.00][70.00][118.00,right][70.00]",
-				"[][][24.00][24.00][24.00][24.00][24.00][][][]"));
+		add(MiddlePanel, BorderLayout.WEST);
+		MiddlePanel.setLayout(new MigLayout("", "[23.00][70.00][118.00,grow,right][70.00]", "[][][24.00][24.00][24.00][24.00][24.00][][38.00][][][]"));
 
 		JLabel lblSubject = new JLabel("Vak");
 		lblSubject.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
@@ -118,16 +113,25 @@ public class NewEventPanel extends AppPanel {
 		JLabel label_2 = new JLabel("\"01-08-2014\"");
 		label_2.setFont(new Font("Segoe UI Light", Font.ITALIC, 12));
 		MiddlePanel.add(label_2, "cell 3 6,alignx right");
+		
+		JLabel lblVraagAanbod = new JLabel("Vraag of Aanbod");
+		lblVraagAanbod.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		MiddlePanel.add(lblVraagAanbod, "cell 1 7,alignx trailing");
+		
+		JComboBox comboBox = new JComboBox(new String[] {"Vraag", "Aanbod"});
+		comboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		MiddlePanel.add(comboBox, "cell 2 7,growx");
 
 		JButton btnTerug = new JButton("Terug");
 		btnTerug.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
-		MiddlePanel.add(btnTerug, "cell 1 9");
+		MiddlePanel.add(btnTerug, "cell 1 11");
 		btnTerug.addActionListener(new AllActionListeners.NavigateToOverviewPanel(frame));
 
 		JButton btnMaakEvent = new JButton("Maak Event!");
 		btnMaakEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
-		MiddlePanel.add(btnMaakEvent, "cell 3 9,growx");
+		MiddlePanel.add(btnMaakEvent, "cell 3 11,growx");
 		btnMaakEvent.addActionListener(new NewEventPanel.AddNewEvent(frame));
+		
 		
 		//TODO MAYBE DELETE KNOP MAYBE NAH
 	}
@@ -166,7 +170,7 @@ public class NewEventPanel extends AppPanel {
 			String date 		= txtDate.getText();
 
 			frame.getFakeDatabase().insertEvent(creator, subject, startTime, endTime, date);
-			
+			JOptionPane.showMessageDialog(null, "Event is gemaakt!");
 			refresh();
 			frame.revalidate();
 		}
