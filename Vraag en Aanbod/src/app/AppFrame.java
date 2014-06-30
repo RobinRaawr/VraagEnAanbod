@@ -14,15 +14,7 @@ public class AppFrame extends JFrame {
 		FakeDatabase fakeDatabase = frame.getFakeDatabase(); // Zo kunnen we gebruik maken van de database.
 		
 		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
-		fakeDatabase.insertEvent("Robin", "Wiskunde B", "12:00", "13:00", "01-07-2014");
+		
 		
 				
 		fakeDatabase.getAllEvents();
@@ -54,6 +46,10 @@ public class AppFrame extends JFrame {
 	
 	public FakeDatabase getFakeDatabase() {
 		return fakeDatabase;
+	}
+	
+	public OverviewPanel getOverviewPanel(){
+		return overviewPanel;
 	}
 	
 	public void setActivePanel(AppPanel appPanel) {

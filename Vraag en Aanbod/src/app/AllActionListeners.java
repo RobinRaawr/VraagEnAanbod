@@ -26,16 +26,35 @@ public class AllActionListeners {
 	public static class NavigateToOverviewPanel implements ActionListener {
 		
 		AppFrame frame;
-		OverviewPanel overviewPanel;
 		
 		public NavigateToOverviewPanel(AppFrame frame) {
 			this.frame = frame;
-		}
+		}	
+		
 		
 		@Override public void actionPerformed(ActionEvent arg0) {
-			frame.setContentPane(overviewPanel);
+			frame.setContentPane(frame.getOverviewPanel());
 			frame.revalidate();
 		}	
 		
 	}
+	
+	public static class AddNewEvent implements ActionListener {
+		
+		AppFrame frame;
+		
+		public AddNewEvent(AppFrame frame) {
+			this.frame = frame;
+		}	
+		
+		
+		@Override public void actionPerformed(ActionEvent arg0) {
+			
+			
+			frame.revalidate();
+		}	
+		
+	}
+	
+	
 }

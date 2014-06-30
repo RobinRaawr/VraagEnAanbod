@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
 import java.awt.GridLayout;
+import net.miginfocom.swing.MigLayout;
 
 
 public class OverviewPanel extends AppPanel {			
@@ -42,10 +43,12 @@ public class OverviewPanel extends AppPanel {
 		MiddlePanel.setLayout(new BorderLayout(0, 0));
 		
 		JPanel MiddleBovenPanel = new JPanel();
-		MiddlePanel.add(MiddleBovenPanel, BorderLayout.NORTH);
+		MiddlePanel.add(MiddleBovenPanel, BorderLayout.SOUTH);
+		MiddleBovenPanel.setLayout(new MigLayout("", "[123px,grow]", "[25px]"));
 		
 		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
-		MiddleBovenPanel.add(btnMaakNieuwEvent);
+		btnMaakNieuwEvent.setHorizontalAlignment(SwingConstants.RIGHT);
+		MiddleBovenPanel.add(btnMaakNieuwEvent, "cell 0 0,alignx right,aligny top");
 		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
 		btnMaakNieuwEvent.setForeground(Color.BLACK);
 		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
