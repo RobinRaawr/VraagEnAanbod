@@ -3,6 +3,7 @@ package app;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,10 +12,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JScrollBar;
 
 
-public class OverviewPanel extends JPanel {
+public class OverviewPanel extends AppPanel {			
 	
-	
+	private JScrollPane scrollPane;
+
 	public OverviewPanel(AppFrame frame){
+		super(frame);
+		
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel UpperPanel = new JPanel();
@@ -49,10 +53,21 @@ public class OverviewPanel extends JPanel {
 		MiddlePanel.add(MiddleOnderPanel);
 		MiddleOnderPanel.setLayout(new BorderLayout(0, 0));
 		
-		JScrollPane scrollPane = new JScrollPane();
+		scrollPane = new JScrollPane();
 		MiddleOnderPanel.add(scrollPane, BorderLayout.CENTER);
 		
 		JScrollBar scrollBar = new JScrollBar();
 		scrollPane.setRowHeaderView(scrollBar);
+		
+		refresh();
+		
+	}
+
+	@Override
+	public void refresh() { //Hier hoeft geen appframe frame want die zit al in.. appPanel waar van overgeerfdbhgflm
+		for (Event event : frame.getFakeDatabase().getAllEvents()){
+			scrollPane.add(new EventListItem(event));
+		}
+		System.out.println("OverviewPanel refreshed.");
 	}
 }

@@ -9,11 +9,12 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-public class NewEventPanel extends JPanel {
+public class NewEventPanel extends AppPanel {
 	
-	AppFrame frame;
 	
-	public NewEventPanel(){
+	public NewEventPanel(AppFrame frame){
+		super(frame);
+		
 		setLayout(new BorderLayout(0, 0));
 		
 		JPanel UpperPanel = new JPanel();
@@ -31,6 +32,11 @@ public class NewEventPanel extends JPanel {
 		LowerPanel.setBackground(Color.GRAY);
 		add(LowerPanel, BorderLayout.SOUTH);
 		LowerPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+	}
+
+	@Override
+	public void refresh() {
 		
 	}
 

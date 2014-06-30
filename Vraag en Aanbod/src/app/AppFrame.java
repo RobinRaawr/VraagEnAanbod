@@ -24,7 +24,7 @@ public class AppFrame extends JFrame {
 		
 		fakeDatabase = new FakeDatabase(); 				
 		overviewPanel = new OverviewPanel(this);
-		neweventPanel = new NewEventPanel();
+		neweventPanel = new NewEventPanel(this);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Zorg dat het kruisje daadwerkelijk de app sluit.

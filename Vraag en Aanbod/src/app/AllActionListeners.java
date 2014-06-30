@@ -15,10 +15,11 @@ public class AllActionListeners {
 	public static class NavigateToNewEventHandler implements ActionListener {
 		
 		AppFrame frame;
-		NewEventPanel neweventpanel = new NewEventPanel();
+		NewEventPanel neweventpanel;
 		
 		public NavigateToNewEventHandler(AppFrame frame) {
 			this.frame = frame;
+			neweventpanel = new NewEventPanel(frame);
 		}
 		
 		@Override public void actionPerformed(ActionEvent arg0) {

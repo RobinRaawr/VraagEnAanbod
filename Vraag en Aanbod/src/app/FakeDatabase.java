@@ -22,6 +22,7 @@ public class FakeDatabase {
 	public void insertEvent(String creator, String subject, String startTime, String endTime, String date) {
 		eventList.add(new Event(creator, subject, startTime, endTime, date));
 		
+		
 	}
 	
 }
