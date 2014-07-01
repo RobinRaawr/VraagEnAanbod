@@ -134,8 +134,6 @@ public class NewEventPanel extends AppPanel {
 		MiddlePanel.add(btnMaakEvent, "cell 3 11,growx");
 		btnMaakEvent.addActionListener(new NewEventPanel.AddNewEvent(frame));
 		
-		
-		//TODO MAYBE DELETE KNOP MAYBE NAH
 	}
 
 	@Override
@@ -174,7 +172,7 @@ public class NewEventPanel extends AppPanel {
 			String vraanbod		= comboBox.getSelectedItem().toString();			
 			
 			frame.getFakeDatabase().insertEvent(creator, subject, startTime, endTime, date, vraanbod);
-			JOptionPane.showMessageDialog(null, "Event is gemaakt!");
+			JOptionPane.showMessageDialog(null, "Event is gemaakt");
 			refresh();
 			frame.revalidate();
 		}

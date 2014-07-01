@@ -65,7 +65,8 @@ public class AppFrame extends JFrame {
 
 	public void refreshActivePanel() {
 		if (activePanel == null)
-			return; // Stopt ALTIJD de huidige method.
+			return; // Stopt ALTIJD de huidige method. maar waarom ookal weer dit? Nullpointer?
+		
 		
 		activePanel.refresh();
 		setContentPane(activePanel);
