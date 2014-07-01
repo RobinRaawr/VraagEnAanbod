@@ -19,12 +19,12 @@ import net.miginfocom.swing.MigLayout;
 
 public class NewEventPanel extends AppPanel {
 	
-	private JTextField txtSubject;
-	private JTextField txtCreator;
-	private JTextField txtStartTime;
-	private JTextField txtEndTime;
-	private JTextField txtDate;
-	private JComboBox<String>  comboBox;
+	private JTextField 			txtSubject;
+	private JTextField 			txtCreator;
+	private JTextField 			txtStartTime;
+	private JTextField 			txtEndTime;
+	private JTextField 			txtDate;
+	private JComboBox<String>  	comboBox;
 
 	public NewEventPanel(AppFrame frame) {
 		super(frame);
@@ -139,8 +139,6 @@ public class NewEventPanel extends AppPanel {
 	@Override
 	public void refresh() {
 		
-		System.out.println("NewEventPanel >> refresh()"); //Hierzo wordt ie leeg gehaald
-		
 		txtSubject.setText("");
 		txtCreator.setText("");
 		txtStartTime.setText("");
@@ -148,11 +146,6 @@ public class NewEventPanel extends AppPanel {
 		txtDate.setText("");
 	}
 
-	/*
-	 * Dit is een (non-static) nested class, soms ook wel inner class genoemd.
-	 * Een inner class kan altijd bij alle private's van de class waar deze in
-	 * zit (de outer class).
-	 */
 	public class AddNewEvent implements ActionListener {
 
 		AppFrame frame;
@@ -173,7 +166,7 @@ public class NewEventPanel extends AppPanel {
 			
 			frame.getFakeDatabase().insertEvent(creator, subject, startTime, endTime, date, vraanbod);
 			JOptionPane.showMessageDialog(null, "Event is gemaakt");
-			refresh();
+			refresh(); // Zet hier de fields leeg
 			frame.revalidate();
 		}
 

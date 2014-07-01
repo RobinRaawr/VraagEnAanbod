@@ -20,6 +20,6 @@ public class FakeDatabase {
 		
 		eventList.add(new Event(creator, subject, startTime, endTime, date, vraanbod));			
 		
-		frame.refreshActivePanel(); // Refresh de app-panel die weergeven wordt.
+		frame.refreshActivePanel(); // Refresh de huidige panel 
 	}
 }

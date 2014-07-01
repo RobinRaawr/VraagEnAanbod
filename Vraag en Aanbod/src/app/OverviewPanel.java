@@ -89,17 +89,14 @@ public class OverviewPanel extends AppPanel {
 		internalListPanel = new JPanel();
 		scrollPane.setViewportView(internalListPanel);
 		internalListPanel.setLayout(new GridLayout(0, 1, 0, 0));
-		
-		refresh();
-		//revalidate();
+				
 	}
 
 	@Override
-	public void refresh() { // Hier hoeft geen appframe frame want die zit al in.. appPanel erft al over
-		internalListPanel.removeAll(); // Gooi de interne lijst van de JScrollPane leeg.
+	public void refresh() {
 		
-		System.out.println("OverviewPanel >> refresh()");
-		
+		internalListPanel.removeAll();
+				
 		for (Event event : frame.getFakeDatabase().getAllEvents()){
 			internalListPanel.add(new EventListItem(event));
 		}
