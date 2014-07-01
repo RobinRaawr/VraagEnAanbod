@@ -20,9 +20,9 @@ public class FakeDatabase {
 		return userList;
 	}
 
-	public void insertEvent(String creator, String subject, String startTime, String endTime, String date) {
-		eventList.add(new Event(creator, subject, startTime, endTime, date));
-		System.out.println("Event toegevoegd. Aantal events: " + eventList.size());
+	public void insertEvent(String creator, String subject, String startTime, String endTime, String date, String vraanbod) {
+		
+		eventList.add(new Event(creator, subject, startTime, endTime, date, vraanbod));			
 		
 		frame.refreshActivePanel(); // Refresh de app-panel die weergeven wordt.
 	}

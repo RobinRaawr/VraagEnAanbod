@@ -39,22 +39,6 @@ public class AllActionListeners {
 		
 	}
 	
-	public static class AddNewEvent implements ActionListener {
-		
-		AppFrame frame;
-		
-		public AddNewEvent(AppFrame frame) {
-			this.frame = frame;
-		}	
-		
-		
-		@Override public void actionPerformed(ActionEvent arg0) {
-			
-			
-			frame.revalidate();
-		}	
-		
-	}
-	
+	//Hier stond de CreateNewEvent();, maar die is verplaatst naar NewEventPanel
 	
 }

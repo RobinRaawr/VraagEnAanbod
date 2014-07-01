@@ -2,21 +2,22 @@ package app;
 
 public class Event {
 	 
-	int ID;
 	private String creator; // User Object
 	private String subject;
 	private String startTime;
 	private String endTime;
 	private String date;
+	private String vraanbod;
 	
 
-	public Event(String creator, String subject, String startTime, String endTime, String date){
+	public Event(String creator, String subject, String startTime, String endTime, String date, String vraanbod){
 		
 		this.creator = creator;
 		this.subject = subject;
 		this.startTime = startTime;
 		this.endTime = endTime;
 		this.date = date;
+		this.vraanbod = vraanbod;
 	}
 	
 	public String getCreator(){
@@ -36,5 +37,8 @@ public class Event {
 
 	public String getDate() {
 		return date;
+	}
+	public String getVraanbod(){
+		return vraanbod;
 	}
 }

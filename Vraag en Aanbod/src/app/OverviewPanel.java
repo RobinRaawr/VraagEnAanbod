@@ -9,9 +9,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollPane;
+
 import java.awt.GridLayout;
+
 import net.miginfocom.swing.MigLayout;
+
 import javax.swing.JTabbedPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -43,7 +47,26 @@ public class OverviewPanel extends AppPanel {
 		
 		JPanel MiddlePanel = new JPanel();
 		add(MiddlePanel, BorderLayout.CENTER);
-		MiddlePanel.setLayout(new MigLayout("", "[450px,grow]", "[53.00,grow][198px][39px]"));
+		MiddlePanel.setLayout(new MigLayout("", "[398.00px,grow]", "[29.00][198px,grow][39px]"));
+		
+		JPanel panel = new JPanel();
+		MiddlePanel.add(panel, "cell 0 0,grow");
+		panel.setLayout(new MigLayout("", "[grow]", "[grow]"));
+		
+		JButton btnAanbod = new JButton("Aanbod");
+		btnAanbod.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		panel.add(btnAanbod, "flowx,cell 0 0,growx");
+		btnAanbod.addActionListener(new SortAanbod());
+		
+		JButton btnVraag = new JButton("Vraag");
+		btnVraag.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		panel.add(btnVraag, "cell 0 0,growx");
+		btnVraag.addActionListener(new SortVraag());
+		
+		JButton btnAlles = new JButton("Alles");	
+		btnAlles.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
+		panel.add(btnAlles, "cell 0 0,growx");
+		btnAlles.addActionListener(new SortAlles());
 		
 		JPanel MiddleBovenPanel = new JPanel();
 		MiddlePanel.add(MiddleBovenPanel, "cell 0 2,growx,aligny top");
@@ -52,7 +75,7 @@ public class OverviewPanel extends AppPanel {
 		JButton btnMaakNieuwEvent = new JButton("Maak Nieuw Event");
 		btnMaakNieuwEvent.setHorizontalAlignment(SwingConstants.RIGHT);
 		MiddleBovenPanel.add(btnMaakNieuwEvent, "cell 0 0,alignx right,aligny top");
-		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		btnMaakNieuwEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		btnMaakNieuwEvent.setForeground(Color.BLACK);
 		btnMaakNieuwEvent.addActionListener(new AllActionListeners.NavigateToNewEventHandler(frame));		
 		
@@ -67,16 +90,6 @@ public class OverviewPanel extends AppPanel {
 		scrollPane.setViewportView(internalListPanel);
 		internalListPanel.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panel = new JPanel();
-		MiddlePanel.add(panel, "flowx,cell 0 0,growx");
-		panel.setLayout(new MigLayout("", "[61px,grow]", "[23px]"));
-		
-		JButton btnVraag = new JButton("Aanbod");
-		panel.add(btnVraag, "flowx,cell 0 0,growx,aligny top");
-		
-		JButton btnAanbod = new JButton("Vraag");
-		panel.add(btnAanbod, "cell 0 0,growx,aligny top");
-		
 		refresh();
 		//revalidate();
 	}
@@ -89,6 +102,48 @@ public class OverviewPanel extends AppPanel {
 		
 		for (Event event : frame.getFakeDatabase().getAllEvents()){
 			internalListPanel.add(new EventListItem(event));
+		}
+		
+	}
+	
+	public class SortVraag implements ActionListener {
+		
+		@Override public void actionPerformed(ActionEvent arg0) {
+			
+			internalListPanel.removeAll();
+			
+			for (Event event : frame.getFakeDatabase().getAllEvents())
+				if (event.getVraanbod().equals("Vraag") == true)
+					internalListPanel.add(new EventListItem(event));
+			
+			frame.revalidate();
+		}
+	}
+	
+	public class SortAanbod implements ActionListener {
+		
+		@Override public void actionPerformed(ActionEvent arg0) {
+			
+			internalListPanel.removeAll();
+			
+			for (Event event : frame.getFakeDatabase().getAllEvents())
+				if (event.getVraanbod().equals("Aanbod") == true)
+					internalListPanel.add(new EventListItem(event));
+			
+			frame.revalidate();
+		}
+	}
+	
+	public class SortAlles implements ActionListener {
+
+		@Override public void actionPerformed(ActionEvent arg0) {
+			
+			internalListPanel.removeAll();
+			
+			for (Event event : frame.getFakeDatabase().getAllEvents())
+				internalListPanel.add(new EventListItem(event));
+			
+			frame.revalidate();
 		}
 		
 	}

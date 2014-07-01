@@ -18,11 +18,13 @@ import javax.swing.SwingConstants;
 import net.miginfocom.swing.MigLayout;
 
 public class NewEventPanel extends AppPanel {
+	
 	private JTextField txtSubject;
 	private JTextField txtCreator;
 	private JTextField txtStartTime;
 	private JTextField txtEndTime;
 	private JTextField txtDate;
+	private JComboBox<String>  comboBox;
 
 	public NewEventPanel(AppFrame frame) {
 		super(frame);
@@ -47,88 +49,88 @@ public class NewEventPanel extends AppPanel {
 
 		JPanel MiddlePanel = new JPanel();
 		add(MiddlePanel, BorderLayout.WEST);
-		MiddlePanel.setLayout(new MigLayout("", "[23.00][70.00][118.00,grow,right][70.00]", "[][][24.00][24.00][24.00][24.00][24.00][][38.00][][][]"));
+		MiddlePanel.setLayout(new MigLayout("", "[1.00][70.00][118.00,grow,right][70.00]", "[29.00][][24.00][24.00][24.00][24.00][24.00][][38.00][][][]"));
 
 		JLabel lblSubject = new JLabel("Vak");
-		lblSubject.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblSubject.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblSubject, "cell 1 2,alignx left");
 
 		txtSubject = new JTextField();
-		txtSubject.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		txtSubject.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(txtSubject, "cell 2 2,growx");
 		txtSubject.setColumns(10);
 
 		JLabel lblSubjectExample = new JLabel("\"Wiskunde B\"");
-		lblSubjectExample.setFont(new Font("Segoe UI Light", Font.ITALIC, 11));
+		lblSubjectExample.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblSubjectExample, "cell 3 2,alignx right");
 
 		JLabel lblCreator = new JLabel("Creator");
-		lblCreator.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblCreator.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblCreator, "cell 1 3,alignx left");
 
 		txtCreator = new JTextField();
-		txtCreator.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		txtCreator.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(txtCreator, "cell 2 3,growx");
 		txtCreator.setColumns(10);
 
 		JLabel lblCreatorExample = new JLabel("\"Gebruikersnaam\"");
-		lblCreatorExample.setFont(new Font("Segoe UI Light", Font.ITALIC, 12));
+		lblCreatorExample.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblCreatorExample, "cell 3 3");
 
 		JLabel lblStartTime = new JLabel("Start tijd");
-		lblStartTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblStartTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblStartTime, "cell 1 4,alignx left");
 
 		txtStartTime = new JTextField();
-		txtStartTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		txtStartTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(txtStartTime, "cell 2 4,growx");
 		txtStartTime.setColumns(10);
 
 		JLabel label = new JLabel("\"12:00\"");
-		label.setFont(new Font("Segoe UI Light", Font.ITALIC, 12));
+		label.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(label, "cell 3 4,alignx right");
 
 		JLabel lblEndTime = new JLabel("Eind tijd");
-		lblEndTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblEndTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblEndTime, "cell 1 5,alignx left");
 
 		txtEndTime = new JTextField();
-		txtEndTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		txtEndTime.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(txtEndTime, "cell 2 5,growx");
 		txtEndTime.setColumns(10);
 
 		JLabel label_1 = new JLabel("\"13:00\"");
-		label_1.setFont(new Font("Segoe UI Light", Font.ITALIC, 12));
+		label_1.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(label_1, "cell 3 5,alignx right");
 
 		JLabel lblDate = new JLabel("Datum");
-		lblDate.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		lblDate.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblDate, "cell 1 6,alignx left");
 
 		txtDate = new JTextField();
-		txtDate.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		txtDate.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(txtDate, "cell 2 6,growx");
 		txtDate.setColumns(10);
 
 		JLabel label_2 = new JLabel("\"01-08-2014\"");
-		label_2.setFont(new Font("Segoe UI Light", Font.ITALIC, 12));
+		label_2.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(label_2, "cell 3 6,alignx right");
 		
 		JLabel lblVraagAanbod = new JLabel("Vraag of Aanbod");
-		lblVraagAanbod.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		lblVraagAanbod.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(lblVraagAanbod, "cell 1 7,alignx trailing");
 		
-		JComboBox comboBox = new JComboBox(new String[] {"Vraag", "Aanbod"});
-		comboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		comboBox = new JComboBox<String>(new String[] {"Vraag", "Aanbod"});
+		comboBox.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(comboBox, "cell 2 7,growx");
 
 		JButton btnTerug = new JButton("Terug");
-		btnTerug.setFont(new Font("Segoe UI Light", Font.PLAIN, 11));
+		btnTerug.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(btnTerug, "cell 1 11");
 		btnTerug.addActionListener(new AllActionListeners.NavigateToOverviewPanel(frame));
 
 		JButton btnMaakEvent = new JButton("Maak Event!");
-		btnMaakEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 12));
+		btnMaakEvent.setFont(new Font("Segoe UI Light", Font.PLAIN, 13));
 		MiddlePanel.add(btnMaakEvent, "cell 3 11,growx");
 		btnMaakEvent.addActionListener(new NewEventPanel.AddNewEvent(frame));
 		
@@ -138,7 +140,8 @@ public class NewEventPanel extends AppPanel {
 
 	@Override
 	public void refresh() {
-		System.out.println("NewEventPanel >> refresh()");
+		
+		System.out.println("NewEventPanel >> refresh()"); //Hierzo wordt ie leeg gehaald
 		
 		txtSubject.setText("");
 		txtCreator.setText("");
@@ -168,8 +171,9 @@ public class NewEventPanel extends AppPanel {
 			String startTime 	= txtStartTime.getText();
 			String endTime 		= txtEndTime.getText();
 			String date 		= txtDate.getText();
-
-			frame.getFakeDatabase().insertEvent(creator, subject, startTime, endTime, date);
+			String vraanbod		= comboBox.getSelectedItem().toString();			
+			
+			frame.getFakeDatabase().insertEvent(creator, subject, startTime, endTime, date, vraanbod);
 			JOptionPane.showMessageDialog(null, "Event is gemaakt!");
 			refresh();
 			frame.revalidate();

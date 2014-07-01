@@ -2,7 +2,6 @@ package app;
 
 public class User {
 	
-	int ID;
 	private String username;
 	private String password;
 	
